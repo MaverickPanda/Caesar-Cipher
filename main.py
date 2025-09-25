@@ -46,6 +46,11 @@ if mode == "encrypt":
             encrypted_message += character
         else:
             encrypted_value = alphabet.get(character) + int(key)
+            # Catch wrapping values
+            if encrypted_value >= 26:
+                encrypted_value -= 26
+            elif encrypted_value <= -1:
+                encrypted_value += 26
             # Convert encrypted_value to corresponding character
             for k, v in alphabet.items():
                 if v == encrypted_value:
@@ -61,6 +66,11 @@ elif mode == "decrypt":
             decrypted_message += character
         else:
             decrypted_value = alphabet.get(character) - int(key)
+            # Catch wrapping values
+            if decrypted_value >= 26:
+                decrypted_value -= 26
+            elif decrypted_value <= -1:
+                decrypted_value += 26
             # Convert decrypted_value to corresponding character
             for k, v in alphabet.items():
                 if v == decrypted_value:
