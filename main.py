@@ -45,12 +45,26 @@ if mode == "encrypt":
         if character in special_characters:
             encrypted_message += character
         else:
-            # Store encrypted_character value
             encrypted_value = alphabet.get(character) + int(key)
-            # Convert encrypted_character value to key
+            # Convert encrypted_value to corresponding character
             for k, v in alphabet.items():
                 if v == encrypted_value:
                     encrypted_character = k
-                    break
+                    break                
             encrypted_message += encrypted_character
-    print(f"Your message has been encrypted:\n{encrypted_message}")        
+    print(f"Your message has been encrypted:\n{encrypted_message}")
+elif mode == "decrypt":
+    ciphertext = input("Please enter your ciphertext below:\n")
+    decrypted_message = ""
+    for character in ciphertext:
+        if character in special_characters:
+            decrypted_message += character
+        else:
+            decrypted_value = alphabet.get(character) - int(key)
+            # Convert decrypted_value to corresponding character
+            for k, v in alphabet.items():
+                if v == decrypted_value:
+                    decrypted_character = k
+                    break
+            decrypted_message += decrypted_character
+    print(f"Your message has been decrypted:\n{decrypted_message}") 
