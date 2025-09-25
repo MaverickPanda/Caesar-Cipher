@@ -39,7 +39,7 @@ mode = input("Would you like to encrypt or decrypt? ").strip().lower()
 key = input("Please enter your key (1-25): ").strip()
 
 if mode == "encrypt":
-    plaintext = input("Please enter your plaintext below:\n")
+    plaintext = input("Please enter your plaintext below:\n").lower()
     encrypted_message = ""
     for character in plaintext:
         if character in special_characters:
@@ -59,7 +59,7 @@ if mode == "encrypt":
             encrypted_message += encrypted_character
     print(f"Your message has been encrypted:\n{encrypted_message}")
 elif mode == "decrypt":
-    ciphertext = input("Please enter your ciphertext below:\n")
+    ciphertext = input("Please enter your ciphertext below:\n").lower()
     decrypted_message = ""
     for character in ciphertext:
         if character in special_characters:
